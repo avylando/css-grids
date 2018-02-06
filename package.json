@@ -1,0 +1,23 @@
+{
+  "name": "css-grids",
+  "version": "1.0.0",
+  "description": "Testing grids",
+  "main": "index.html",
+  "scripts": {
+    "start": "browser-sync start --server --files '**/*.css, **/*.html, **/*.js, !node_modules/**/*' --directory --port 7777 --browser 'Chrome'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/avylando/css-grids.git"
+  },
+  "author": "avylando",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/avylando/css-grids/issues"
+  },
+  "homepage": "https://github.com/avylando/css-grids#readme",
+  "devDependencies": {
+    "browser-sync": "^2.23.6"
+  },
+  "dependencies": {}
+}
