@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CSS Grid. Fundamentals</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="item item1 header">1</div>
+    <div class="item item2 header">2</div>
+    <div class="item item3 header">3</div>
+    <div class="item item4 sidebar">4</div>
+    <div class="item item5 main">5</div>
+    <div class="item item6">6</div>
+    <div class="item item7 sidebar">7</div>
+    <div class="item item8 main">8</div>
+    <div class="item item9 footer">9</div>
+    <div class="item item10 footer">10</div>
+    <div class="item item11 footer">11</div>
+    <div class="item item12 footer">12</div>
+    <!-- <div class="item item13">13</div>
+    <div class="item item14">14</div>
+    <div class="item item15">15</div>
+    <div class="item item16">16</div>
+    <div class="item item17">17</div>
+    <div class="item item18">18</div>
+    <div class="item item19">19</div>
+    <div class="item item20">20</div>
+    <div class="item item21">21</div>
+    <div class="item item22">22</div>
+    <div class="item item23">23</div>
+    <div class="item item24">24</div>
+    <div class="item item25">25</div>
+    <div class="item item26">26</div>
+    <div class="item item27">27</div>
+    <div class="item item28">28</div>
+    <div class="item item29">29</div>
+    <div class="item item30">30</div> -->
+  </div>
+
+  <style>
+    .container {
+      display: grid;
+      /* grid-template-columns: 100px auto 300px 200px; */
+      /* grid-template-columns: repeat(2, 300px);   */
+      /* grid-template-columns: 100px repeat(auto-fill, minmax(100px, 1fr));  Значение ширины столбцов */
+      grid-template-columns: [sidebar] 2fr [main] 10fr [content-2] 1fr; /* В квадратных скобках можно задавать имена столбцов/строк */
+      grid-template-rows: [head] 100px [center] 400px [foot] 200px;  /* Значение высоты строк */
+      grid-template-areas:
+      'header header header'
+      'sidebar main content-2'
+      'sidebar main content-2'
+      'footer footer footer'; /* Наименования полей */
+      grid-auto-rows: 80px;     /* Высота строки по-умолчанию, если она не задана явно */
+      grid-auto-columns: 100px;  /* Ширина столбца по умолчанию, если она не задана явно */
+      grid-gap: 10px; /* Отступ между строками и столбцами */
+      grid-auto-flow: row;  /* Добавление новых элементов в поток (по умолчанию "row" - в строку) */
+    }
+
+    @media (max-width: 900px) {
+      .container {
+        grid-template-areas:
+        'sidebar header header'
+        'sidebar main main'
+        'content-2 main main'
+        'footer footer footer'; /* Наименования полей */
+      }
+    }
+
+    .header {
+      grid-area: header;
+    }
+
+    .main {
+      grid-area: main;
+    }
+
+    .sidebar {
+      grid-area: sidebar;
+    }
+
+    .item6 {
+      /* grid-area: content-2; */
+      grid-column: content-2-start/content-2-end; /* Растянуть с начала до конца именованных полей */
+    }
+
+    .footer {
+      grid-area: footer;
+    }
+
+    .item11 {
+      /* grid-column: span 3; Количество столбцов, занимаемых ячейкой */
+      /* grid-row: span 2; Количество строк, занимаемых ячейкой */
+    }
+
+    .item8 {
+      /* grid-column: sidebar / content-2; Можно обращаться к столбцам/строкам по ранее заданным именам */
+      /* grid-column: 2 / -1; */
+      /* grid-column-start: 4; Начальный столбец для растяжения */
+      /* grid-column-end: 5; Конечный столбец для растяжения */
+      /* grid-column: 2 / 5; Короткая запись */
+
+    }
+
+    .item4 {
+      /* grid-column: 1 / -1; Растянуть на всю ширину */
+      /* grid-row: 3 / 5; Начальная/конечная строка для растяжения */
+    }
+  </style>
+</body>
+</html>
